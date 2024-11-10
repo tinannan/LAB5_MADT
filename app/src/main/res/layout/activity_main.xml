@@ -15,6 +15,7 @@
         android:padding="12dp"
         />
 
+
     <ListView
         android:id="@+id/currencyListView"
         android:layout_width="match_parent"

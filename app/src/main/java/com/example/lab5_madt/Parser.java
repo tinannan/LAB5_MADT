@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class Parser {
     private static final String TAG = "Parser";
-    // Parse XML data and extract currency info
+
     public static List<String> parseXML(InputStream xmlData) {
         List<String> currencyData = new ArrayList<>();
 
@@ -21,22 +21,22 @@ public class Parser {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
-            // Parse the XML data
+            // parse XML data
             Document document = builder.parse(xmlData);
             document.getDocumentElement().normalize();
 
-            // Extract "item" elements, which contain currency info
+
             NodeList rateList = document.getElementsByTagName("item");
 
-            // Loop through each "item" node
+
             for (int i = 0; i < rateList.getLength(); i++) {
                 Element rateElement = (Element) rateList.item(i);
 
-                // Get currency code and rate
+                // get currency code and rate
                 String code = rateElement.getElementsByTagName("targetCurrency").item(0).getTextContent();
                 String rate = rateElement.getElementsByTagName("exchangeRate").item(0).getTextContent();
 
-                // Format the data as "USD - 1.235"
+                // format the data
                 currencyData.add(code + " - " + rate);
             }
 

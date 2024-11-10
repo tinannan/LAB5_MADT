@@ -8,12 +8,12 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
-
+import android.util.Log;
 public class DataLoader extends AsyncTask<String, Void, List<String>> {
 
     private final MainActivity mainActivity;
 
-    // Constructor to link DataLoader with MainActivity
+    // link DataLoader with MainActivity
     public DataLoader(MainActivity activity) {
         this.mainActivity = activity;
     }
@@ -22,25 +22,25 @@ public class DataLoader extends AsyncTask<String, Void, List<String>> {
     protected List<String> doInBackground(String... urls) {
         List<String> data = null;
         try {
-            // Fetch XML data from the URL
+
             URL url = new URL(urls[0]);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = connection.getInputStream();
 
-            // Parse XML using the Parser class
+            // parse xml
             data = Parser.parseXML(inputStream);
 
-            // Close the input stream
+            // close the input stream
             inputStream.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("DataLoader", "Error fetching currency data", e);
         }
         return data;
     }
 
     @Override
     protected void onPostExecute(List<String> result) {
-        // Update the MainActivity with parsed data
+        // update the MainActivity with parsed data
         if (result != null && !result.isEmpty()) {
             mainActivity.updateCurrencyList(result);
         }
