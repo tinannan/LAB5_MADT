@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <!-- TextView to display currency rate -->
+
     <TextView
         android:id="@+id/currencyTextView"
         android:layout_width="match_parent"
