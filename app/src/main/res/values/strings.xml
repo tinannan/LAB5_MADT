@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LAB5_MADT</string>
+    <string name="search_currency">Search currency</string>
+    <string name="usd_1_235">USD - 1.235</string>
 </resources>
