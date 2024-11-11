@@ -14,7 +14,7 @@ import java.util.List;
 public class CurrencyAdapter extends ArrayAdapter<String> {
 
     private final Context context;
-    private List<String> values;
+    private final List<String> values;
 
     // initialize the adapter
     public CurrencyAdapter(Context context, List<String> values) {

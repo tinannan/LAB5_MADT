@@ -3,7 +3,6 @@ package com.example.lab5_madt;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -56,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
                     // Truncate the input to the first 3 characters
                     searchField.setText(charSequence.subSequence(0, 3));
                     searchField.setSelection(3); // Move the cursor to the end
-                    Log.d("filter debug", "no filter"+ charSequence.subSequence(0, 3).toString());
+                    //Log.d("filter debug", "no filter"+ charSequence.subSequence(0, 3).toString());
                 } else {
                     // Perform the filtering only if the input is 3 characters or fewer
                     filterCurrencyList(charSequence.toString());
-                    Log.d("filter debug", charSequence.toString());
+                    //Log.d("filter debug", charSequence.toString());
                 }
             }
 
@@ -91,14 +90,14 @@ public class MainActivity extends AppCompatActivity {
         if (query.isEmpty()) {
             // Show all currencies if the query is empty
             filteredList.addAll(fullCurrencyList);
-            Log.d("filterCurrencyList", "empty filter");
+            //Log.d("filterCurrencyList", "empty filter");
         } else {
-            Log.d("filterCurrencyList", query);
+            //Log.d("filterCurrencyList", query);
             // Filter the list based on the query
             for (String currency : fullCurrencyList) {
                 if (currency.toLowerCase().contains(query.toLowerCase())) {
                     filteredList.add(currency);
-                    Log.d("filterCurrencyList1", filteredList.toString());
+                    //Log.d("filterCurrencyList1", filteredList.toString());
                 }
             }
         }
